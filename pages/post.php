@@ -64,7 +64,7 @@ if($count ==1){
                         </div>
 
                         <div class="Review_Content ">
-                            <h2>'. $row['reviewSubTitle'] .'These companies should stop smoking weed behind the bleachers</h2>
+                            <h2>'. $row['reviewSubTitle'] .'</h2>
                             <h3>Posted By <span class="Hero-Color">'. $row['adminFirstName'] .' '. $row['adminLastName'] .'</span></h3>
 
                             <h3>On '. date("M jS Y",strtotime($row['reviewDate'])) .'</h3>

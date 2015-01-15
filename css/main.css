@@ -868,6 +868,7 @@ REVIEW PAGE
     max-height: 27vh;
     line-height: 13vh;
     overflow: hidden;
+    display: block;
     
     margin: 0;
     min-width: 100%;
@@ -911,7 +912,7 @@ REVIEW PAGE
     margin-top: 30px;
     padding-right: 10px;
     
-    font-size: 120%;
+    font-size: 110%;
     font-family: 'Hind';
     font-weight: 300;
     text-transform: capitalize;
@@ -919,15 +920,12 @@ REVIEW PAGE
     display: inline-block;
     text-align: left;
 }
-.Review_Content_Container h3.mobile{
-    display: none;   
-}
 .Review_Content p{
     color: black;
     font-size: 105%;
     font-family: 'Hind';
     font-weight: 300;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 40px;
     word-spacing: 1px;
     line-height: 180%;
@@ -998,12 +996,6 @@ REVIEW PAGE - MEDIA QUERIES
         height: auto;
         margin-top: 0;
     }
-    .Review_Content_Title h1{
-        max-height: none;
-        margin: 0;
-        line-height: normal;
-        font-size: 320%;
-    }
     .Review_Content_Title .Full-Title {
         margin-top: 0;
         max-height: none;  
@@ -1026,12 +1018,17 @@ REVIEW PAGE - MEDIA QUERIES
     .Review_Rating{
         display: none;
     }
-    .Review_Content_Container h2.mobile{
-        display: inline-block;    
+    
+    .Review_Content_Title h1 {
+        font-size: 400%;  
+        font-family: 'Source Sans Pro';
+        color: #333;
+        max-height: none;
+        line-height: normal;
     }
     
     .Review_Content_Container h2{
-        font-size: 130%; 
+        font-size: 140%; 
         line-height: 150%;
         font-weight: 300;
     }
@@ -1052,21 +1049,15 @@ REVIEW PAGE - MEDIA QUERIES
         min-height: 0;
     }
     
-    .Review_Content_Title h1 {
-        font-size: 400%;  
-        padding-top: 10px;
-        font-family: 'Source Sans Pro';
-        color: #555;
-
-    }
-    
-@media (min-width: 500px) {
-        .Review_Content_Title h1 {  
+    @media (max-width: 500px) {
+        .Review_Content_Title h1 {
+            padding-top: 10px;
         }    
-    }   
-    
-    .Review_Content_Container h2{
-       
+    } 
+    @media (max-width: 350px) {
+        .Review_Content_Title h1 {
+            font-size: 300%;
+        }    
     }
 }
 
