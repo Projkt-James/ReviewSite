@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2014 at 01:54 AM
+-- Generation Time: Jan 15, 2015 at 04:48 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -40,19 +40,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `typeID` tinyint(1) NOT NULL,
   PRIMARY KEY (`adminID`),
   KEY `typeID` (`typeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`adminID`, `adminUsername`, `adminPassword`, `adminSalt`, `adminFirstName`, `adminLastName`, `adminEmail`, `adminJoinDate`, `typeID`) VALUES
-(1, 'admin', '4d26c7a40c01a3a0991e51a426d6e6c72a9068031b88353a7e589a0636a33440', 'f6abf16192b734176b5b18456f5d9bd5', 'Jesse', 'Scott', '123@gmail.com', '2014-01-13 14:00:00', 0),
-(2, 'adminkt', '19612ae3ed04b7c224ba12db07be5ce0915eed3de351ccbf60508f948b476e5a', '15cec5205c9e34355287acbb4d096a08', 'Kristi ', 'Turman', 'kristi@gmail.com', '2014-01-01 09:00:00', 0),
-(3, 'adminst', '0fec1e61a67e7a0fd3623e0d9d656fc765462557c2a5f5933ee37b63d9864d80', 'a1dca222c170e3d2b5dd2557d5a57090', 'Scott ', 'Turman', 'turman@telstra.com.au', '2014-01-20 14:30:00', 0),
-(4, 'adminrw', '8a35fd6de1e692dfa8277c405f93bba34926176285c85a13634e54e051b576f3', '09d1fe391935b75f798053f866ee5052', 'Richard ', 'Weathers', 'richo@gmail.com', '2014-01-20 16:00:00', 0),
-(5, 'adminnc', 'd54dc8e24b12ba4805777d6b6eac977094b73962a15e04f227ec40eb6ec56432', '4d069acd30e4b0c6eb5e5f36c01d1482', 'Nicholas ', 'Cutter', 'nicholas.cutter@gmail.com', '2014-01-22 13:00:00', 0),
-(6, 'test', 'd98e245d4e1b23fafcbf08fa98ae9673e310623266efe7e91dee8cd4548e52cb', 'a38da95d2ad61e8d886e540ff04c9015', 'hmm', 'hmm', 'hmm@hmm.com', '2014-10-11 00:31:53', 0);
+(1, 'admin', '4d26c7a40c01a3a0991e51a426d6e6c72a9068031b88353a7e589a0636a33440', 'f6abf16192b734176b5b18456f5d9bd5', 'Admin', 'User', 'admin@indevspace.org', '2014-01-13 14:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `categoryName` varchar(45) NOT NULL,
   `categoryDescription` text NOT NULL,
   PRIMARY KEY (`categoryID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `category`
@@ -92,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`commentID`),
   KEY `memberID` (`memberID`),
   KEY `reviewID` (`reviewID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `comment`
@@ -106,7 +101,14 @@ INSERT INTO `comment` (`commentID`, `comment`, `memberID`, `commentDate`, `revie
 (10, 'Hahahahaha this works now :)', 1, '2014-10-01 00:28:17', 4),
 (11, 'I dunno how I feel about this.', 1, '2014-10-01 01:03:10', 1),
 (12, 'More comments for fun :P', 9, '2014-10-01 01:28:17', 4),
-(17, 'Just another lonely comment.', 13, '2014-10-10 02:48:58', 2);
+(17, 'Just another lonely comment.', 13, '2014-10-10 02:48:58', 2),
+(18, 'I am a god ah!', 20, '2014-10-13 13:39:05', 4),
+(19, 'I am a god ah!', 20, '2014-10-13 13:39:06', 4),
+(20, 'hmmm', 1, '2014-10-13 15:01:08', 14),
+(21, 'This is a comment, I have the default profile picture.', 27, '2014-10-13 15:28:54', 14),
+(22, 'Dam this movie was crap\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\ntest', 20, '2014-10-14 00:42:57', 4),
+(23, 'Comment', 20, '2014-10-14 02:12:48', 4),
+(24, 'Great movie 10/10 from me.', 20, '2014-10-23 22:49:43', 13);
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `countryID` int(10) NOT NULL AUTO_INCREMENT,
   `country` varchar(50) NOT NULL,
   PRIMARY KEY (`countryID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `country`
@@ -140,7 +142,7 @@ INSERT INTO `country` (`countryID`, `country`) VALUES
 CREATE TABLE IF NOT EXISTS `current` (
   `themeID` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`themeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `current`
@@ -178,28 +180,20 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`memberID`),
   KEY `countryID` (`countryID`),
   KEY `typeID` (`typeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`memberID`, `memberUsername`, `memberPassword`, `memberSalt`, `memberFirstName`, `memberLastName`, `memberStreetNumber`, `memberStreetName`, `memberSuburb`, `memberPostCode`, `countryID`, `memberPhone`, `memberMobile`, `memberEmail`, `memberGender`, `memberJoinDate`, `memberNewsletter`, `memberImage`, `typeID`) VALUES
-(1, 'natalie', '9d26a3c61c0e2ce5c980ad8c7fff13c08cf898b6f3786930c73b68e3b88ad779', '002640cb549ba08ee90cd79aee89cce7', 'Natalie', 'Goddard', '18', 'Edward St ', 'Brisbane', '4001', 1, '0738109022', '0401209638', 'ngoddard@gmail.com', 'F', '2014-01-16 14:00:00', 'Y', 'nataliegoddard.png', 1),
-(2, 'yvette', '19612ae3ed04b7c224ba12db07be5ce0915eed3de351ccbf60508f948b476e5a', '15cec5205c9e34355287acbb4d096a08', 'Yvette', 'Lyons', '24', 'Avoca St', 'Yeronga', '4104', 1, '0738485782', '0413652378', 'yvette_lyon@hotmail.com', 'F', '2014-01-16 08:30:00', 'Y', NULL, 1),
-(3, 'kathryn', '0fec1e61a67e7a0fd3623e0d9d656fc765462557c2a5f5933ee37b63d9864d80', 'a1dca222c170e3d2b5dd2557d5a57090', 'Kathryn ', 'Jenkinns', '1/18', 'Dexter St', 'Tennyson', '4105', 1, '0431096952', '', 'katjenkinns@iinet.net', 'F', '2014-01-20 09:00:00', 'Y', NULL, 1),
-(4, 'jenny', '8a35fd6de1e692dfa8277c405f93bba34926176285c85a13634e54e051b576f3', '09d1fe391935b75f798053f866ee5052', 'Jennifer ', 'Louise', '103', 'Davis Lane', 'Brendale', '4500', 1, '0753201738', '0489459921', 'jen.L@talktalk.net', 'F', '2014-01-23 01:00:00', 'Y', 'jenniferlouise.png', 1),
-(5, 'michelle', 'd54dc8e24b12ba4805777d6b6eac977094b73962a15e04f227ec40eb6ec56432', '4d069acd30e4b0c6eb5e5f36c01d1482', 'Michelle ', 'Turner', '29', 'Cascade Drive', 'Underwood', '4119', 1, '0770731334', '0447789653', 'MTurner@optusnet.com.au', 'F', '2014-04-30 03:30:00', 'Y', NULL, 1),
-(6, 'bennie', '9d26a3c61c0e2ce5c980ad8c7fff13c08cf898b6f3786930c73b68e3b88ad779', '002640cb549ba08ee90cd79aee89cce7', 'Ben ', 'Hogan', NULL, NULL, NULL, '4510', 1, NULL, NULL, 'ben1972@gmail.com', 'M', '2014-02-02 17:30:00', 'Y', NULL, 1),
-(7, 'natasha', '19612ae3ed04b7c224ba12db07be5ce0915eed3de351ccbf60508f948b476e5a', '15cec5205c9e34355287acbb4d096a08', 'Natasha ', 'Smith', '56', 'Ascot Court', 'Bundall', '4217', 1, '0792811317', '0415475042', 'NSmithy@tpg.com.au', 'F', '2014-02-18 09:15:00', 'Y', NULL, 1),
-(8, 'court', '0fec1e61a67e7a0fd3623e0d9d656fc765462557c2a5f5933ee37b63d9864d80', 'a1dca222c170e3d2b5dd2557d5a57090', 'Courtney ', 'Gonsalves', '24/145', 'Snipe St', 'Miami', '4220', 1, '0755490087', '0454657581', 'gonsalves@iinet.net', 'F', '2014-02-12 18:00:00', 'Y', NULL, 1),
-(9, 'jason', '8a35fd6de1e692dfa8277c405f93bba34926176285c85a13634e54e051b576f3', '09d1fe391935b75f798053f866ee5052', 'Jason ', 'House', '2', 'Carberry St', 'Grange', '4051', 1, '0443881263', NULL, 'man_in_the_house@talktalk.net', 'M', '2014-03-17 13:00:00', 'Y', 'jasonhouse.png', 1),
-(10, 'tony', 'd54dc8e24b12ba4805777d6b6eac977094b73962a15e04f227ec40eb6ec56432', '4d069acd30e4b0c6eb5e5f36c01d1482', 'Tony ', 'House', NULL, NULL, NULL, '4509', 1, '0417286753', NULL, 'tmat@gmail.com', 'M', '2014-03-20 20:00:00', 'Y', NULL, 1),
-(11, 'chrissie', '9d26a3c61c0e2ce5c980ad8c7fff13c08cf898b6f3786930c73b68e3b88ad779', '002640cb549ba08ee90cd79aee89cce7', 'Christine ', 'Howard', '128', 'Grandview Rd', 'Pullenvale', '4069', 1, '0732352904', '0412368799', 'christy043@hotmail.com', 'F', '2014-04-01 21:30:00', 'N', NULL, 1),
-(12, 'julia', '19612ae3ed04b7c224ba12db07be5ce0915eed3de351ccbf60508f948b476e5a', '15cec5205c9e34355287acbb4d096a08', 'Julia ', 'Hammar', '76', 'Ontario Crescent', 'Parkinson', '4115', 1, '0739772748', '0402324857', 'julia.hammar@bigpond.com', 'F', '2014-04-02 02:30:00', 'Y', NULL, 1),
-(13, 'james', '0fec1e61a67e7a0fd3623e0d9d656fc765462557c2a5f5933ee37b63d9864d80', 'a1dca222c170e3d2b5dd2557d5a57090', 'James', 'Mellons', NULL, NULL, NULL, '1234', 1, '0739217545', '0411123123', 'jamie.menon@Gmail.com', 'M', '2014-01-13 16:00:00', 'Y', '13/7217_derp.jpg', 1),
-(17, 'testacc3', '1aa357344f9f07430b5445dcc78ac1fd022772ca61f767c6b4815137b148cada', '886c1516077f4097c72ac8803843d0bf', 'abcd', 'abcd', NULL, NULL, NULL, '4111', 2, NULL, NULL, '11111@www.com', 'M', '2014-09-30 03:30:40', 'Y', NULL, 1),
-(18, 'Jasmine', '4d3960909c754c8a64f45899706f561759a0946b250889fb58586e6638cc4e56', '5e9ab4181d5abbcd8c04a40b53bba846', 'jasmine', 'Pratt', NULL, NULL, NULL, '4054', 3, NULL, NULL, 'idontcare@fjnnnjf.com', 'F', '2014-10-03 03:13:23', 'Y', NULL, 1);
+(27, 'Sample', '5c3ce17e8abb45b450d8e14dd2a9aa4841ac8cdb0c682e6f61c9212085dfe3a0', 'f69b19ddf99ac367cb5dfb4ce10aae0e', 'Sample', 'User', NULL, NULL, NULL, '4011', 1, NULL, NULL, 'sample@Sample.com', 'M', '2014-10-13 15:23:11', 'Y', NULL, 1),
+(26, 'Mila', '440568f9191be326af908dbcac98ac1db3e8aa9b96594b5e04c4c48ac1209df6', 'b1bdd921dd0b03b51c173582620eb48e', 'Mila', 'Kunis', NULL, NULL, NULL, '1111', 5, NULL, NULL, 'Mila@Kunis.com', 'F', '2014-10-13 14:20:13', 'Y', '26/5346_mila.jpg', 1),
+(21, 'Beyonce', '98dc7313e19cdd07bb7cfa26dfec2bea6a5d8f6c35bc6acb7e92d2a7767a4e1f', '03d54442bd8863225229b7061ee4d215', 'Beyonce', 'Knowles', NULL, NULL, NULL, '1234', 5, NULL, NULL, 'Knowles@gmail.com', 'F', '2014-10-13 13:41:16', 'Y', '21/8616_beyonce.jpg', 1),
+(19, 'JayZ', 'a5765366a294dd6631e71ec3ae3d214adcfa462bbc766c8fd4c9c75845f51832', 'b8a8b744ace825dc7ebfa29d2a5e50c1', 'Jay', 'Z', NULL, NULL, NULL, '1337', 5, NULL, NULL, 'Jayz@jayz.com', 'M', '2014-10-13 10:24:20', 'Y', '19/3704_jay-z.jpg', 1),
+(20, 'Kanye', '335106dd1b001c3658076445307a29c693afb2c05d81e6f2e85397ff3afafb35', '17d573090ea992b8601c19510d82822d', 'Kanye', 'Pest', NULL, NULL, NULL, '1337', 5, NULL, NULL, 'Kanye@pest.com', 'M', '2014-10-13 11:27:39', 'Y', '20/1326_kanye-west.jpeg', 1),
+(25, 'Emma', 'd78d4d07b1ea3fe1d11d7e7a5dcd7e124f11e1a16151699fe5f2835daef3ba12', '0bd22f845caab32135df5eb1c64d17bc', 'Emma', 'Stone', NULL, NULL, NULL, '4111', 5, NULL, NULL, 'Emma@Stone.com', 'F', '2014-10-13 14:12:29', 'Y', '25/7856_emma.jpeg', 1),
+(24, 'Drake', 'ff32b5419a862aed18fb281c81aea618d8597c1ad4c6906fb565c18cb77424df', '175256aa645027616af611e434407785', 'Drake', 'Graham', NULL, NULL, NULL, '4001', 5, NULL, NULL, 'drake@drake', 'M', '2014-10-13 14:02:11', 'Y', '24/5892_drake.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +204,7 @@ INSERT INTO `member` (`memberID`, `memberUsername`, `memberPassword`, `memberSal
 CREATE TABLE IF NOT EXISTS `review` (
   `reviewID` int(10) NOT NULL AUTO_INCREMENT,
   `reviewTitle` varchar(45) NOT NULL,
+  `reviewSubTitle` varchar(255) NOT NULL,
   `reviewContent` text NOT NULL,
   `categoryID` int(10) NOT NULL,
   `reviewDate` datetime NOT NULL,
@@ -219,17 +214,18 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`reviewID`),
   KEY `categoryID` (`categoryID`),
   KEY `adminID` (`adminID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`reviewID`, `reviewTitle`, `reviewContent`, `categoryID`, `reviewDate`, `reviewRating`, `reviewImage`, `adminID`) VALUES
-(1, 'Hunger Games', '  The Hunger Games is an intriguing tale and a good start to what is sure to be a continuing franchise. There are two more books in the series which will hopefully take the series in a more original direction that will allow us to get to know the characters even better. Sure this entry is a ripoff of Battle Royale, but it''s still an entertaining ride with great casting that will more than likely please fans of the book and those who''ve never even heard of it. Needs to be longer :9\r\n', 2, '2014-10-10 23:41:47', 10, 'hungergames.jpg', 2),
-(2, 'The Pirates! Band of Misfits', 'The Pirates! Band of Misfits is one of those films that most people will watch and probably never give a second thought about. That''s not necessarily because it''s bad, but because it''s just not particularly memorable in any way. It''s a very light and breezy film, which can be a good thing, but after watching this, I found myself struggling to think of anything that made it stand out or made it interesting. There were a few things, but as usual, I found that the main problem could be traced back directly to the story\n', 3, '2014-01-22 13:00:00', 6, 'pirates.jpg', 5),
-(3, 'Resident Evil: Retribution', 'Milla Jovovich returns as Alice, the series'' heroine, who in the past has had superpowers and fought alongside her clones against the evil Umbrella Corporation, which sold biological weapons to the highest bidders around the globe without regard for the apocalyptic ramifications. At the start of the film, Alice finds herself within the heart of the Umbrella base, where its evil supercomputer brain, the Red Queen, continues to run massive virtual simulations of the outbreaks that it started (best not to ask why). To escape to the real world, Alice must battle her way through pseudo-video-game levels that take her through key moments from the previous films as she encounters clones of fallen team members, as well as zombies, monsters, and undead army men on dirt bikes (sometimes on fire) sporting missile launchers. Yep, Retribution is definitely a Resident Evil movie alright.\n', 4, '2014-01-20 16:30:00', 4, 'residentevil.jpg', 4),
-(4, 'Star Trek Into Darkness', 'Visually the film is glorious, with director of photography Dan Mindel and production designer Scott Chambliss returning for a second round. The Apple Store look of the Enterprise''s bridge contrasts with the primary colors of the costumes, and Harrison''s all-black ensemble frames him as the classic Western villain. Futuristic San Francisco is a particular standout: part familiar terrain, part utopian dream. The film was partially shot in IMAX - certain scenes go full-screen, a stylistic choice that Christopher Nolan used in The Dark Knight - and was post-converted to 3D. Together the combination makes for a fully immersive ride, drawing the viewer in rather than pushing them away\n', 2, '2014-01-13 14:00:00', 8, 'startrekintodarkness.jpg', 2);
+INSERT INTO `review` (`reviewID`, `reviewTitle`, `reviewSubTitle`, `reviewContent`, `categoryID`, `reviewDate`, `reviewRating`, `reviewImage`, `adminID`) VALUES
+(1, 'Hunger Games', 'Sub title for hunger games', '  The Hunger Games is an intriguing tale and a good start to what is sure to be a continuing franchise. There are two more books in the series which will hopefully take the series in a more original direction that will allow us to get to know the characters even better. Sure this entry is a ripoff of Battle Royale, but it''s still an entertaining ride with great casting that will more than likely please fans of the book and those who''ve never even heard of it. Needs to be longer :9\r\n', 2, '2014-03-10 23:41:47', 10, 'hungergames.jpg', 1),
+(13, 'Avengers 2', 'Marvel releases yet another epic movie', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui.<br /><br />\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui.', 2, '2014-10-13 14:52:07', 9, 'avengers.png', 1),
+(3, 'Resident Evil: Retribution', 'This movie shouldn''t have been made', 'Milla Jovovich returns as Alice, the series'' heroine, who in the past has had superpowers and fought alongside her clones against the evil Umbrella Corporation, which sold biological weapons to the highest bidders around the globe without regard for the apocalyptic ramifications. At the start of the film, Alice finds herself within the heart of the Umbrella base, where its evil supercomputer brain, the Red Queen, continues to run massive virtual simulations of the outbreaks that it started (best not to ask why). To escape to the real world, Alice must battle her way through pseudo-video-game levels that take her through key moments from the previous films as she encounters clones of fallen team members, as well as zombies, monsters, and undead army men on dirt bikes (sometimes on fire) sporting missile launchers. Yep, Retribution is definitely a Resident Evil movie alright.\n', 4, '2014-01-20 16:30:00', 4, 'residentevil.jpg', 1),
+(4, 'Star Trek Into Darkness', 'Yet another failed Star Wars wannabe', 'Visually the film is glorious, with director of photography Dan Mindel and production designer Scott Chambliss returning for a second round. The Apple Store look of the Enterprise''s bridge contrasts with the primary colors of the costumes, and Harrison''s all-black ensemble frames him as the classic Western villain. Futuristic San Francisco is a particular standout: part familiar terrain, part utopian dream. The film was partially shot in IMAX - certain scenes go full-screen, a stylistic choice that Christopher Nolan used in The Dark Knight - and was post-converted to 3D. Together the combination makes for a fully immersive ride, drawing the viewer in rather than pushing them away\n', 2, '2014-04-13 14:00:00', 8, 'startrekintodarkness.jpg', 1),
+(14, 'Guardians Of The Galaxy ', 'Could this be the best movie of 2014?', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui.<br />\r\n<br />\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui.', 2, '2014-10-13 14:54:35', 10, 'gotg.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -244,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `theme` (
   `themeImage` varchar(100) NOT NULL,
   `themeCSS` varchar(100) NOT NULL,
   PRIMARY KEY (`themeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `theme`
@@ -265,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `type` (
   `type` varchar(20) NOT NULL,
   PRIMARY KEY (`typeID`),
   KEY `typeID` (`typeID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `type`
@@ -274,30 +270,6 @@ CREATE TABLE IF NOT EXISTS `type` (
 INSERT INTO `type` (`typeID`, `type`) VALUES
 (0, 'admin'),
 (1, 'member');
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`memberID`) REFERENCES `member` (`memberID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`reviewID`) REFERENCES `review` (`reviewID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `member`
---
-ALTER TABLE `member`
-  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`countryID`) REFERENCES `country` (`countryID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `review`
---
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`adminID`) REFERENCES `admin` (`adminID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
