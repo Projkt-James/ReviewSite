@@ -161,7 +161,7 @@ function echoLogIn(){
                             </li>
 
                             <li >
-                                <a><span class="Signup_Trigger2"><span class="fa fa-angle-left"></span>&nbsp;Sign Up Now</span></a> &nbsp;&nbsp;&nbsp; Forgot Your Password?
+                                <a><span class="Signup_Trigger"><span class="fa fa-angle-left"></span>&nbsp;Sign Up Now</span></a> &nbsp;&nbsp;&nbsp; Forgot Your Password?
                             </li>
                         </ul>
                     </form>

@@ -11,8 +11,6 @@ ON DOC READY ~ START
 ***************************/
 $(document).ready(function () {
     
-    setTimeout(hideNotify, 30000); //Hide Notify 30 Secs
-    
     /********************
     Nav Animation 
     *********************/
@@ -45,7 +43,6 @@ $(document).ready(function () {
             
             hideReviewBanner();
         }
-        
     });
     
     /********************
@@ -80,12 +77,22 @@ $(document).ready(function () {
             
             hideReviewBanner();
         }
-    
     });
     
     /**************************
     Sign Up ~ Animate In 
     ***************************/
+    
+    /*
+    * Sign Up - Slides in from right
+    * - Log In - Slides in from right
+    * - Close - Closes all elements
+    * - Sign Up - Opens loading screen passes data through ajax/Json
+    *
+    * Login In - Slides in from right
+    *
+    *
+    */
     
     //OPEN SIGN UP
     $('.Signup_Trigger').click(function(){
@@ -95,11 +102,6 @@ $(document).ready(function () {
         $('.Signup_Container').addClass('translate-x-0');
         setTimeout(hideSiteContainer, 700);
         setTimeout(setSignAbsolute, 700);
-    });
-    
-    $('.Signup_Trigger2').click(function(){
-        $('.Login_Container').removeClass('translate-x-0');
-        $('.Signup_Container').removeClass('hidden');
     });
     
     //OPEN SIGN UP LOADING
@@ -136,12 +138,13 @@ $(document).ready(function () {
     ***************************/
     //OPEN LOG IN
     $('.Login_Trigger').click(function(){
+        
         $('.Login_Container').addClass('transition-ease-07s');
         $('.Login_Container').addClass('translate-x-0');
         setTimeout(hideSiteContainer, 1000);
         
-        if(!$('.Signup_Container').hasClass('translate-x-0')){
-            setTimeout(placeSignUp, 100);
+        if(!$('.Signup_Container').hasClass('hidden')){
+            setTimeout(resetSignUp, 1000);
         }
     });
     
@@ -160,7 +163,9 @@ $(document).ready(function () {
     
     
     
-    
+    /**************************
+    Other
+    ***************************/
     //AUTO SIZES ALL TEXTAREA'S
     $('textarea').autosize(); 
     
@@ -180,10 +185,12 @@ $(document).ready(function () {
         if($('.Home_Review_Image_Overlay').hasClass("hidden")){
             $('.Home_Review_Image_Overlay').removeClass("hidden");               
         }
-        
+
         $(this).parentsUntil('.Home_Review_Container').find('.Home_Review_Image_Overlay').addClass('Home_Review_Image_Overlay_Hover');
         $(this).parentsUntil('.Home_Review_Container').find('.Home_Review_Image').addClass('Home_Review_Image_Hover');
     });
+    
+    //DEACTIVATE READ MORE ON TITLE HOVER LEAVE
     $('.Home_Review_Info_Title h2').mouseleave(function(){
         $(this).parentsUntil('.Home_Review_Container').find('.Home_Review_Image_Overlay').removeClass('Home_Review_Image_Overlay_Hover');
         $(this).parentsUntil('.Home_Review_Container').find('.Home_Review_Image').removeClass('Home_Review_Image_Hover');
@@ -215,7 +222,7 @@ $(document).ready(function () {
 /***************************
 ON DOC READY ~ END
 ***************************/
-//////////I WENT////////////
+//////////THIS IS///////////
 /***************************
 ON WINDOW SCROLL ~ START
 ***************************/
@@ -235,7 +242,7 @@ $(window).scroll(function () {
 /***************************
 ON WINDOW SCROLL ~ END
 ***************************/
-///////ALITTLE CRAZY////////
+///////AN EASTER EGG////////
 /***************************
 CUSTOM FUNCTIONS
 ***************************/
@@ -372,10 +379,6 @@ function onlyNumeric(e) {
     }   
 }
 
-function hideNotify(){
-    $(".Notify").addClass("Notify-Hide");
-}
-
 function hideSiteContainer(){
     $('.Site_Container').addClass('hidden');
     scrollToAnchor('Top-Page');
@@ -405,10 +408,9 @@ function hideSignupContainer(){
     $('.Signup_Container').addClass('hidden');
 }
 
-function placebehindSignUp(){
-    $('.Signup_Container').addClass('hidden');   
-    $('.Signup_Container').addClass('transition-ease-07s');
-    $('.Signup_Container').addClass('translate-x-0');
+function resetSignUp(){
+    $('.Signup_Container').removeClass('translate-x-0'); 
+    $('.Signup_Container').addClass('hidden'); 
 }
 
 
